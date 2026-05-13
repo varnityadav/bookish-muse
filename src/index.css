@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=JetBrains+Mono:wght@400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-ink: #0a0a0a;
+  --color-ash: #ffffff;
+}
+
+@layer base {
+  body {
+    @apply bg-ink text-ash font-sans antialiased selection:bg-ash selection:text-ink;
+    overflow: hidden;
+  }
+}
+
+.glass-card {
+  @apply bg-white/5 backdrop-blur-3xl border border-white/10 rounded-[40px];
+}
+
+.atmosphere {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 70% 20%, #333 0%, transparent 60%), radial-gradient(circle at 20% 80%, #111 0%, transparent 50%);
+  filter: blur(40px);
+  opacity: 0.6;
+  z-index: 0;
+}
+
+.letter-spacing-wide {
+  letter-spacing: 0.2em;
+}
+
+.animate-pulse-slow {
+  animation: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.15; }
+}
